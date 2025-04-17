@@ -24,4 +24,17 @@ Consider an image $I_{raw}$ with height and width $(h, w)$ used to train or test
 I_{flip}(x,y) = I_{raw}(w-x-1, y)
 ```
 
+```math
+\begin{bmatrix}
+        x \\ y
+    \end{bmatrix}_{rot}
+    = \begin{bmatrix}
+        cos(\theta)&-sin(\theta) \\ sin(\theta)&cos(\theta)
+    \end{bmatrix}
+    \begin{bmatrix}
+        x\\y
+    \end{bmatrix}_{flip}, \qquad \theta \in [-15^\circ, 15^\circ]
+```
+
+
 Once perturbed, we convert our images to grayscale and resize them to $48 \times48$ due to this resolution's validation for preserving critical facial structures in our selected dataset \cite{goodfellow2013}.
