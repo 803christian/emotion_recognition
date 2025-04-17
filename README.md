@@ -20,8 +20,8 @@ In addition to testing our model against these training and testing sets, we pro
 
 Consider an image $I_{raw}$ with height and width $(h, w)$ used to train or test our model. In order to improve model generalizability, we perturb our data with a series of transformations: horizontal flipping, a randomly selected rotation and translation, additive Gaussian noise, and simulated lighting changes via gamma correction. The application of each of these processes follows the order in which they are given, and the explicit application of these perturbations are given, in order, below. 
 
-'''math
+```math
 I_{flip}(x,y) = I_{raw}(w-x-1, y)
-'''
+```
 
 Once perturbed, we convert our images to grayscale and resize them to $48 \times48$ due to this resolution's validation for preserving critical facial structures in our selected dataset \cite{goodfellow2013}.
