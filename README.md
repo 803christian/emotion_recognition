@@ -37,4 +37,16 @@ I_{flip}(x,y) = I_{raw}(w-x-1, y)
     \end{bmatrix}_{flip}, \qquad \theta \in [-15^\circ, 15^\circ]
 ```
 
+```math
+I_{trans}(x, y) = I_{rot}(x+\epsilon_x, y+\epsilon_y), \qquad \epsilon_x,\epsilon_y \in [-3, 3]
+```
+
+```math
+I_{noise} = I_{trans} + \eta, \qquad \eta \in \mathcal{N}(0, \sigma^2), \sigma=2
+```
+
+```math
+I_{pp} = I_{max}(\frac{I_{noise}}{I_{max}})^\gamma, \qquad I_{max}=255, \gamma\in[0.8, 1.2]
+```
+
 Once perturbed, we convert our images to grayscale and resize them to $48 \times48$ due to this resolution's validation for preserving critical facial structures in our selected dataset \cite{goodfellow2013}.
