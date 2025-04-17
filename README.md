@@ -10,7 +10,7 @@ In this paper, we propose a multi-stage classification approach that, given imag
 
 ## Data
 
-To train our model, we use the FER-2013+ facial expressions dataset provided by \cite{fer2013} and \cite{barsoum2016}. This dataset provides over $30,000$ examples of facial expressions tied to one of the seven emotional classes, split into training and testing subsets. 
+To train our model, we use the FER-2013+ facial expressions dataset provided by [Kaggle](https://www.kaggle.com/datasets/msambare/fer2013) and [Microsoft](https://github.com/microsoft/FERPlus). This dataset provides over $30,000$ examples of facial expressions tied to one of the seven emotional classes, split into training and testing subsets. 
 
 Compared to the original FER-2013 dataset, the FER-2013+ dataset provides more robust emotional classification by providing a crowd-sourced list of labels that were deemed accurate emotional interpretations of each image according to humans. By considering images as valid for evaluation of multiple emotions, we expand the size of our dataset to $172,254$ training samples and $21,534$ testing samples. 
 
@@ -49,4 +49,30 @@ I_{noise} = I_{trans} + \eta, \qquad \eta \in \mathcal{N}(0, \sigma^2), \sigma=2
 I_{pp} = I_{max}(\frac{I_{noise}}{I_{max}})^\gamma, \qquad I_{max}=255, \gamma\in[0.8, 1.2]
 ```
 
-Once perturbed, we convert our images to grayscale and resize them to $48 \times48$ due to this resolution's validation for preserving critical facial structures in our selected dataset \cite{goodfellow2013}.
+Once perturbed, we convert our images to grayscale and resize them to $48 \times48$ due to this resolution's validation for preserving critical facial structures in our selected dataset.
+
+## Feature Encoding
+
+Given a pre-processed image $I_{pp}$, we compute a histogram of oriented gradients (HOG) for our image to encode the gradients of the contours of the face in the image as our primary feature (see \cite{dalal2005} for details). We then average this HOG with another HOG computed using $I_{pp}$ with enhanced contrast via Contrast Limited Adaptive Histogram Equalization (CLAHE) (see \cite{manu2023} for details). The resulting averaged histogram is a set of extracted features from our image $\mathcal{D}_{HOG} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N$.
+
+Using the dataset listed in this paper, the set of extracted features $\mathcal{X}_{HOG}$ has a dimensionality of $2,352$. In order to speed up our training process, we scale our data according to:
+
+```math
+    \mathcal{X}_{scale} = \frac{\mathcal{X}_{HOG} - \mu_{\mathcal{X}_{HOG}}}{\sigma_{\mathcal{X}_{HOG}}},
+```
+
+ where $\mu_{\mathcal{X}_{HOG}}$ and $\sigma_{\mathcal{X}_{HOG}}$ are the mean and standard deviation of the dataset, respectively, and then perform principal component analysis (PCA) to reduce our dataset dimensionality to $900$. Given our scaled data, we construct a covariance matrix $\Sigma$ according to:
+
+```math
+     \Sigma = \frac{1}{N-1} \mathcal{X}_{scale}^T \mathcal{X}_{scale}.
+```
+
+We then compute the eigenvalues $\lambda_1\geq\lambda_2\geq...\geq\lambda_d$ and corresponding eigenvectors $\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_d$ for the feature dataset's current dimensionality $d$. In order to reduce dimensionality to $900$, we select the first $900$ eigenvectors from the ordered set to construct a transformation matrix $W=[\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_{900}]$ such that:
+
+```math
+    \mathcal{X}_{PCA} = \mathcal{X}_{scale} W.
+```
+
+In this work, we find that the reduced dimensionality from $2,352$ to $900$ still maintains $99.55$\% of the original feature dataset's variance. 
+
+After data processing, we perform our classification according to the method in Sec. \ref{sec:method} and test our method's accuracy on the training and test datasets. 
