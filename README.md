@@ -24,7 +24,6 @@ Consider an image $I_{raw}$ with height and width $(h, w)$ used to train or test
 I_{flip}(x,y) = I_{raw}(w-x-1, y)
 ```
 
-
 ```math
 \begin{bmatrix}
         x \\ y
@@ -53,7 +52,7 @@ Once perturbed, we convert our images to grayscale and resize them to $48 \times
 
 ## Feature Encoding
 
-Given a pre-processed image $ I_{pp} $ , we compute a histogram of oriented gradients (HOG) for our image to encode the gradients of the contours of the face in the image as our primary feature (see \cite{dalal2005} for details). We then average this HOG with another HOG computed using $I_{pp}$ with enhanced contrast via Contrast Limited Adaptive Histogram Equalization (CLAHE) (see \cite{manu2023} for details). The resulting averaged histogram is a set of extracted features from our image $ \mathcal{D}_{HOG} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N $ .
+Given a pre-processed image $I_{pp}$, we compute a histogram of oriented gradients (HOG) for our image to encode the gradients of the contours of the face in the image as our primary feature (see [this paper](https://ieeexplore.ieee.org/document/1467360) for details). We then average this HOG with another HOG computed using $I_{pp}$ with enhanced contrast via Contrast Limited Adaptive Histogram Equalization (CLAHE) (see [this paper](https://ieeexplore.ieee.org/document/10420184) for details). The resulting averaged histogram is a set of extracted features from our image $\mathcal{D}_{HOG} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N$.
 
 Using the dataset listed in this paper, the set of extracted features $\mathcal{X}_{HOG}$ has a dimensionality of $2,352$. In order to speed up our training process, we scale our data according to:
 
@@ -61,7 +60,7 @@ Using the dataset listed in this paper, the set of extracted features $\mathcal{
     \mathcal{X}_{scale} = \frac{\mathcal{X}_{HOG} - \mu_{\mathcal{X}_{HOG}}}{\sigma_{\mathcal{X}_{HOG}}},
 ```
 
- where $ \mu_{\mathcal{X}_{HOG}} $ and $\sigma_{\mathcal{X}_{HOG}}$ are the mean and standard deviation of the dataset, respectively, and then perform principal component analysis (PCA) to reduce our dataset dimensionality to $900$. Given our scaled data, we construct a covariance matrix $\Sigma$ according to:
+ where $\mu_{\mathcal{X}_{HOG}}$ and $\sigma_{\mathcal{X}_{HOG}}$ are the mean and standard deviation of the dataset, respectively, and then perform principal component analysis (PCA) to reduce our dataset dimensionality to $900$. Given our scaled data, we construct a covariance matrix $\Sigma$ according to:
 
 ```math
      \Sigma = \frac{1}{N-1} \mathcal{X}_{scale}^T \mathcal{X}_{scale}.
