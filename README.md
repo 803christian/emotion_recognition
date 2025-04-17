@@ -53,7 +53,7 @@ Once perturbed, we convert our images to grayscale and resize them to $48 \times
 
 ## Feature Encoding
 
-Given a pre-processed image $ I_{pp} $, we compute a histogram of oriented gradients (HOG) for our image to encode the gradients of the contours of the face in the image as our primary feature (see \cite{dalal2005} for details). We then average this HOG with another HOG computed using $I_{pp}$ with enhanced contrast via Contrast Limited Adaptive Histogram Equalization (CLAHE) (see \cite{manu2023} for details). The resulting averaged histogram is a set of extracted features from our image $ \mathcal{D}_{HOG} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N $.
+Given a pre-processed image $ I_{pp} $ , we compute a histogram of oriented gradients (HOG) for our image to encode the gradients of the contours of the face in the image as our primary feature (see \cite{dalal2005} for details). We then average this HOG with another HOG computed using $I_{pp}$ with enhanced contrast via Contrast Limited Adaptive Histogram Equalization (CLAHE) (see \cite{manu2023} for details). The resulting averaged histogram is a set of extracted features from our image $ \mathcal{D}_{HOG} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N $ .
 
 Using the dataset listed in this paper, the set of extracted features $\mathcal{X}_{HOG}$ has a dimensionality of $2,352$. In order to speed up our training process, we scale our data according to:
 
