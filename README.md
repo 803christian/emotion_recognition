@@ -12,7 +12,7 @@ In this paper, we propose a multi-stage classification approach that, given imag
 
 Clone the repository into an empty folder.
 
-'''code git clone https://github.com/803christian/emotion_recognition.git'''
+```git clone https://github.com/803christian/emotion_recognition.git```
 
 Inside this folder, you can run `emotion_classifier.py` as-is to train and test the model. To use the pre-trained model, comment out the line `clf.fit(fer_path, fer_plus_path` and run the code. 
 
