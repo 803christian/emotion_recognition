@@ -75,3 +75,28 @@ We then compute the eigenvalues $\lambda_1\geq\lambda_2\geq...\geq\lambda_d$ and
 In this work, we find that the reduced dimensionality from $2,352$ to $900$ still maintains $99.55$\% of the original feature dataset's variance. 
 
 After data processing, we perform our classification according to the method in Method and test our method's accuracy on the training and test datasets. 
+
+## Methodology
+
+Given our organized dataset \(\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N\) for \(N\) facial images, where \(\mathbf{x}_i \in \mathcal{X}_{PCA}\in\mathbb{R}^d\) is our feature vector and \(y_i \in \{1, \dots, 7\}\) is our list of possible emotions, we predict the emotional label $\hat{y}$ according to the optimization:
+
+```math
+\hat{y} = \arg\max_{k \in \{1,\dots,7\}} \mathbf{w}_k^\top \mathbf{x} + b_k,
+```
+where \(\mathbf{w}_k \in \mathbb{R}^d\) and \(b_k \in \mathbb{R}\) are the weights and biases, respectively. 
+
+In order to maximize the margin of our separating hyperplane, we incorporate a hinge loss function:
+
+```math
+\ell(\mathbf{w},b,\mathbf{x}_i,y_i) = \max(0, 1 - y_i(\mathbf{w}^T\mathbf{x}_i+b))
+```
+
+such that the loss is 0 for a correct classification and increases linearly depending on the magnitude of the misclassification. Adding an $\ell_2$ regularization term, the resulting optimization becomes:
+
+```math
+\min_{\mathbf{w}_k, b_k} \frac{1}{2} \|\mathbf{w}_k\|^2 + C \sum_{i=1}^N \max\left(0, 1 - y_i^{(k)}(\mathbf{w}_k^\top \mathbf{x}_i + b_k)\right)
+```
+
+for a tunable regularization hyperparameter $C=0.01$. This optimization is solved using gradient descent for maximum $10,000$ iterations with learning rate $\alpha=0.01$. Each emotion is classified separately to produce our converged weights and biases. Because of the simplicity of this method, we achieve a computational complexity of O(1) \cite{bottou2010}. 
+
+Finally, at test time, each test image is augmented $5$ times, producing $6$ total versions of each image. We make predictions for each version of each image, and the final prediction is determined according to a majority decision of each version of the image.
