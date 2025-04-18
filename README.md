@@ -88,7 +88,7 @@ After data processing, we perform our classification according to the method in 
 
 ## Methodology
 
-Given our organized dataset $\(\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N\)$ for $\(N\)$ facial images, where \(\mathbf{x}_i \in \mathcal{X}_{PCA}\in\mathbb{R}^d\) is our feature vector and \(y_i \in \{1, \dots, 7\}\) is our list of possible emotions, we predict the emotional label $\hat{y}$ according to the optimization:
+Given our organized dataset \(\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^N\) for \(N\) facial images, where \(\mathbf{x}_i \in \mathcal{X}_{PCA}\in\mathbb{R}^d\) is our feature vector and \(y_i \in \{1, \dots, 7\}\) is our list of possible emotions, we predict the emotional label $\hat{y}$ according to the optimization:
 
 ```math
 \hat{y} = \arg\max_{k \in \{1,\dots,7\}} \mathbf{w}_k^\top \mathbf{x} + b_k,
