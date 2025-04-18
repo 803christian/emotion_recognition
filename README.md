@@ -76,7 +76,7 @@ Using the dataset listed in this paper, the set of extracted features $\mathcal{
      \Sigma = \frac{1}{N-1} \mathcal{X}_{scale}^T \mathcal{X}_{scale}.
 ```
 
-We then compute the eigenvalues $\lambda_1\geq\lambda_2\geq...\geq\lambda_d$ and corresponding eigenvectors $\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_d$ for the feature dataset's current dimensionality $d$. In order to reduce dimensionality to $900$, we select the first $900$ eigenvectors from the ordered set to construct a transformation matrix $W = [v_1, v_2, ..., v_[900]]$  such that:
+We then compute the eigenvalues $\lambda_1\geq\lambda_2\geq...\geq\lambda_d$ and corresponding eigenvectors $\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_d$ for the feature dataset's current dimensionality $d$. In order to reduce dimensionality to $900$, we select the first $900$ eigenvectors from the ordered set to construct a transformation matrix $W = v_1, v_2, ..., v_{900}$  such that:
 
 ```math
     \mathcal{X}_{PCA} = \mathcal{X}_{scale} W.
