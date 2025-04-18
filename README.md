@@ -8,6 +8,12 @@ Effective communication with others requires an understanding of and adaptation 
 
 In this paper, we propose a multi-stage classification approach that, given image data, classifies facial expressions according to the six basic emotions (anger, fear, disgust, happiness, sadness, and surprise), along with a 'neutral' class for a lack of emotional expression. We find that this approach enables real-time emotional recognition via live-feed image data, which can be used to provide large-language models (LLMs) with emotional context when conversing with both humans and robots with facial expressibility. 
 
+## How to Use
+
+Clone the repository into an empty folder.
+
+''git clone ''
+
 ## Data
 
 To train our model, we use the FER-2013+ facial expressions dataset provided by [Kaggle](https://www.kaggle.com/datasets/msambare/fer2013) and [Microsoft](https://github.com/microsoft/FERPlus). This dataset provides over $30,000$ examples of facial expressions tied to one of the seven emotional classes, split into training and testing subsets. 
