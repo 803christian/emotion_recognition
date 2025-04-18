@@ -18,6 +18,12 @@ Inside this folder, you can run `emotion_classifier.py` as-is to train and test 
 
 To run custom images, place the image within the directory and add the name of the image (with extension) to the list `custom_images`. 
 
+| Dataset      | Samples  | Accuracy |
+|--------------|---------:|---------:|
+| Training     | 172,254  | 54.60%   |
+| PublicTest   | 21,534   | 54.17%   |
+| PrivateTest  | 21,534   | 53.33%   |
+
 ## Data
 
 To train our model, we use the FER-2013+ facial expressions dataset provided by [Kaggle](https://www.kaggle.com/datasets/msambare/fer2013) and [Microsoft](https://github.com/microsoft/FERPlus). This dataset provides over $30,000$ examples of facial expressions tied to one of the seven emotional classes, split into training and testing subsets. 
