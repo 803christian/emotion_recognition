@@ -1,0 +1,27 @@
+>> python3 emotion_classifier.py 
+
+Loading Training Data...
+Got 172254 samples for Training.
+Scaling Data...
+Scaling Done.
+Applying PCA...
+PCA reduced from 2352 to 900 dimensions, maintained 99.55% variance.
+Training Classifier...
+Training done in 442.01s. Model saved to emotion_classifier_model.pkl.
+
+Testing model on Training...
+Test Time Augmentation: True
+Got 172254 samples for Training.
+Testing Accuracy: 62.16%
+
+Testing model on PublicTest...
+Test Time Augmentation: True
+Got 21534 samples for PublicTest.
+Testing Accuracy: 61.02%
+
+Testing model on PrivateTest...
+Test Time Augmentation: True
+Got 21534 samples for PrivateTest.
+Testing Accuracy: 59.63%
+
+Emotion: neutral        Time Elapsed: 0.41s
