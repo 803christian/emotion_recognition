@@ -92,7 +92,7 @@ In this work, we find that the reduced dimensionality from $2,352$ to $900$ stil
 
 After data processing, we perform our classification according to the method in Method and test our method's accuracy on the training and test datasets. 
 
-## Methodology
+## Classification
 
 Given our organized dataset for N facial images, where $\mathbf{x}_i$ is our feature vector and $y_i$ is our list of possible emotions, we predict the emotional label $\hat{y}$ according to the optimization:
 
@@ -116,3 +116,5 @@ such that the loss is 0 for a correct classification and increases linearly depe
 for a tunable regularization hyperparameter $C=0.01$. This optimization is solved using gradient descent for maximum $10,000$ iterations with learning rate $\alpha=0.01$. Each emotion is classified separately to produce our converged weights and biases. Because of the simplicity of this method, we achieve a computational complexity of O(1). 
 
 Finally, at test time, each test image is augmented $5$ times, producing $6$ total versions of each image. We make predictions for each version of each image, and the final prediction is determined according to a majority decision of each version of the image.
+
+For additional specifics on the classifier, please see sci-kit's [LinearSVC documentation](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html). 
