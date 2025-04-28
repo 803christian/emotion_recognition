@@ -14,7 +14,7 @@ Clone the repository into an empty folder.
 
 ```git clone https://github.com/803christian/emotion_recognition.git```
 
-Inside this folder, you can run `emotion_classifier.py` as-is to train (~12 hrs) and test the model. To use the pre-trained model, comment out the line `clf.fit(fer_path, fer_plus_path)` and run the code. 
+Inside this folder, you can run `emotion_classifier.py` as-is to train (~8 min) and test the model. To use the pre-trained model, comment out the line `clf.fit(fer_path, fer_plus_path)` and run the code. 
 
 To run custom images, place the image within the directory and add the name of the image (with extension) to the list `custom_images`. 
 
