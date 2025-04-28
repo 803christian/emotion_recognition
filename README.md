@@ -1,12 +1,10 @@
 # Emotional Recognition Via Image Data
 
-## Context
+## Background
 
 Understanding of emotional expression is a crucial component of human communication. Emotions can be expressed in a number of forms, including direct verbal communication, variations in tone, body language, and facial expressions. 
 
 Effective communication with others requires an understanding of and adaptation to the changes in emotional state of the other party. However, for those who do not intuitively understand emotional expression, such as those with mental disorders (e.g., autism) or robots, multi-stage classifiers can provide emotional intuition so that these people can more effectively communicate with others according to their current emotional state. 
-
-In this paper, we propose a multi-stage classification approach that, given image data, classifies facial expressions according to the six basic emotions (anger, fear, disgust, happiness, sadness, and surprise), along with a 'neutral' class for a lack of emotional expression. We find that this approach enables real-time emotional recognition via live-feed image data, which can be used to provide large-language models (LLMs) with emotional context when conversing with both humans and robots with facial expressibility. 
 
 ## How to Use
 
