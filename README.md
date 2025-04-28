@@ -92,7 +92,7 @@ We then compute the eigenvalues and corresponding eigenvectors for the feature d
 
 Here, we find that the reduced dimensionality from $2,352$ to $900$ still maintains $99.55$\% of the original feature dataset's variance. 
 
-After data processing, we perform our classification according to the method in Method and test our method's accuracy on the training and test datasets. 
+After data processing, we perform our classification according to the method below and test our method's accuracy on the training and test datasets. 
 
 ## Classification
 
