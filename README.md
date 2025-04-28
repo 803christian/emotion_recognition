@@ -1,5 +1,7 @@
 # Emotional Recognition Via Image Data
 
+![TEST IMAGE](/happy_example.pdf)
+
 ## Background
 
 Understanding of emotional expression is a crucial component of human communication. Emotions can be expressed in a number of forms, including direct verbal communication, variations in tone, body language, and facial expressions. 
