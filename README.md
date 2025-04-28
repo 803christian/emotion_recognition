@@ -18,9 +18,9 @@ To run custom images, place the image within the directory and add the name of t
 
 | Dataset      | Samples  | Accuracy |
 |--------------|---------:|---------:|
-| Training     | 172,254  | 57.31%   |
-| PublicTest   | 21,534   | 56.87%   |
-| PrivateTest  | 21,534   | 55.78%   |
+| Training     | 172,254  | 62.16%   |
+| PublicTest   | 21,534   | 61.02%   |
+| PrivateTest  | 21,534   | 59.63%   |
 
 ## Data
 
