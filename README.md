@@ -111,7 +111,7 @@ such that the loss is 0 for a correct classification and increases linearly depe
 \min_{\mathbf{w}_k, b_k} \frac{1}{2} \|\mathbf{w}_k\|^2 + C \sum_{i=1}^N \max\left(0, 1 - y_i^{(k)}(\mathbf{w}_k^\top \mathbf{x}_i + b_k)\right)
 ```
 
-for a tunable regularization hyperparameter $C=0.01$. This optimization is solved using coordinate descent for maximum $10,000$ iterations. Each emotion is classified separately to produce our converged weights and biases. Because of the simplicity of this method, we achieve a computational complexity of $O(n_{samples}n_{features}n_{classes})$. 
+for a tunable regularization hyperparameter $C=0.01$. This optimization is solved using coordinate descent for maximum $10,000$ iterations. Each emotion is classified separately to produce our converged weights and biases. This method yields a computational complexity of $O(n_{samples}n_{features}n_{classes})$. 
 
 Finally, at test time, each test image is augmented $5$ times, producing $6$ total versions of each image. We make predictions for each version of each image, and the final prediction is determined according to a majority decision of each version of the image.
 
