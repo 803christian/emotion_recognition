@@ -24,6 +24,8 @@ To run custom images, place the image within the directory and add the name of t
 | PublicTest   | 21,534   | 61.02%   |
 | PrivateTest  | 21,534   | 59.63%   |
 
+A sample output from running training, testing, and custom images can be found in [sample_output.txt](/code/sample_output.txt). 
+
 ## Data
 
 To train our model, we use the FER-2013+ facial expressions dataset provided by [Kaggle](https://www.kaggle.com/datasets/msambare/fer2013) and [Microsoft](https://github.com/microsoft/FERPlus). This dataset provides over $30,000$ examples of facial expressions tied to one of the seven emotional classes, split into training and testing subsets. 
