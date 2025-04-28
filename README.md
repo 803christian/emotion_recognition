@@ -1,6 +1,6 @@
 # Emotional Recognition Via Image Data
 
-![TEST IMAGE](/happy_example.pdf)
+![TEST IMAGE](/happy_example.png)
 
 ## Background
 
